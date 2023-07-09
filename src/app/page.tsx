@@ -15,7 +15,7 @@ export default function Home() {
       <section className="container mx-auto">
         <div className="flex items-center my-40">
           <div className="flex-1">
-            <div className="text-[#e898a3] font-bold text-xl text-[60px] uppercase">Coming Soon</div>
+            <div className="text-[#e898a3] font-bold text-[60px] uppercase">Coming Soon</div>
             <div className="text-[#939393] my-8 mr-20 text-[20px]">
               <div>Our website is still under construction.</div>
               <div>For more updates, follow us on our social media platforms.</div>
