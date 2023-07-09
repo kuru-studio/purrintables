@@ -15,8 +15,8 @@ export default function Home() {
       <section className="container mx-auto">
         <div className="flex items-center my-40">
           <div className="flex-1">
-            <div className="text-[#e898a3]">Coming Soon</div>
-            <div className="text-[#939393]">Our website is still under construction. For more updates, follow us on our social media platforms.</div>
+            <div className="text-[#e898a3] font-bold text-xl text-[60px]">Coming Soon</div>
+            <div className="text-[#939393] my-8 mr-20 text-[20px]">Our website is still under construction. For more updates, follow us on our social media platforms.</div>
             <div className="flex space-x-4 text-[#a6a6a6]">
               <FontAwesomeIcon icon={faFacebookF} className="w-5 h-5" />
               <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" />
