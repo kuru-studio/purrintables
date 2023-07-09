@@ -1,4 +1,4 @@
-export default function Pattern({ children }) {
+export default function Pattern({ children }: any) {
   return (
     <div className="relative">
       <div className="flex absolute inset-0 w-full h-full z-[-1]">
@@ -7,7 +7,7 @@ export default function Pattern({ children }) {
         <div className="bg-[#f8efe6] flex-1"></div>
       </div>
       <div>
-        <div className="container mx-auto">{ children }</div>
+        <div className="min-h-screen">{ children }</div>
       </div>
     </div>
   )

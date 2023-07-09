@@ -4,12 +4,10 @@ import Pattern from '../components/Pattern';
 
 export default function Home() {
   return (
-    <main>
+    <Pattern>
       <Header />
-      <Pattern>
-        Under Maintenance
-      </Pattern>
+      <section className="container mx-auto">Under Maintenance</section>
       <Footer />
-    </main>
+    </Pattern>
   )
 }
