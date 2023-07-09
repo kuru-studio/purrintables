@@ -8,3 +8,6 @@ body {
 header {
   background-color: #b0abcb;
 }
+.diagonal-slash {
+  background: linear-gradient(to bottom right, white 50%, #f8efe6 50%);
+}
