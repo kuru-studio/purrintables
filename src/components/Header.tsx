@@ -1,6 +1,9 @@
 import Logo from '../assets/logo.png'
 import Image from 'next/image'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
 export default function Header() {
   return (
     <header>
@@ -9,7 +12,9 @@ export default function Header() {
           <div className="mr-auto">
             <Image src={Logo} width={150} alt='Purrintables'/>
           </div>
-          <div>right side</div>
+          <div>
+            <FontAwesomeIcon icon={faBars} className="w-5 h-5" />
+          </div>
         </div>
       </nav>
     </header>
