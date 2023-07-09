@@ -11,3 +11,8 @@ header {
 .diagonal-slash {
   background: linear-gradient(to bottom right, white 50%, #f8efe6 50%);
 }
+iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
