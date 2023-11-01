@@ -1,33 +1,33 @@
 import { Carousel as AntCarousel } from 'antd';
-
-const contentStyle: React.CSSProperties = {
-  margin: 0,
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-};
+import Image from 'next/image'
+import Carousel1 from '../../_assets/carousel/1.jpg'
+import Carousel2 from '../../_assets/carousel/2.jpg'
+import Carousel3 from '../../_assets/carousel/3.jpg'
 
 const Carousel = () => {
-  const onChange = (currentSlide: number) => {
-    console.log(currentSlide);
-  };
-
   return (
-    <div className="rounded-lg overflow-hidden">
-      <AntCarousel afterChange={onChange} autoplay>
-        <div>
-          <h3 style={contentStyle}>1</h3>
+    <div className="rounded-[50px] overflow-hidden">
+      <AntCarousel autoplay>
+        <div className="aspect-[2/1] bg-cover">
+          <Image
+            className="w-full h-full"
+            src={Carousel1}
+            alt="Carousel 1"
+          />
         </div>
-        <div>
-          <h3 style={contentStyle}>2</h3>
+        <div className="aspect-[2/1] bg-cover">
+          <Image
+            className="w-full h-full"
+            src={Carousel2}
+            alt="Carousel 2"
+          />
         </div>
-        <div>
-          <h3 style={contentStyle}>3</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>4</h3>
+        <div className="aspect-[2/1] bg-cover">
+          <Image
+            className="w-full h-full"
+            src={Carousel3}
+            alt="Carousel 3"
+          />
         </div>
       </AntCarousel>
     </div>

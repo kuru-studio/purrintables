@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="bg-[#b0abcb]">
       <nav className="text-white">
-        <div className="container mx-auto flex p-3 items-center justify-between">
+        <div className="container mx-auto flex p-3 items-center justify-between gap-3">
           <div><Atom.Logo width={150} /></div>
           <div>
             <Input

@@ -2,6 +2,12 @@
 import Organism from "@organism";
 import Molecule from "@molecule";
 
+import Keychains from "./_assets/products/keychains.png";
+import Sticker from "./_assets/products/sticker-set.png";
+import Tshirts from "./_assets/products/t-shirts.png";
+import Tumbler from "./_assets/products/tumbler.png";
+
+
 export default function Home() {
   return (
     <div>
@@ -15,16 +21,10 @@ export default function Home() {
           </div>
         </Organism.Jumbotron>
         <Organism.Shop title="Featured Products">
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={true} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={true} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
-          <Molecule.Product thumbnail="https://kbob.github.io/images/sample-5.jpg" title="PaoNeko Mug" price={300.00} isSoldOut={false} link="#" />
+          <Molecule.Product thumbnail={Keychains} title="Keychains" price={200} isSoldOut={false} link="#" />
+          <Molecule.Product thumbnail={Sticker} title="Sticker Set" price={150} isSoldOut={false} link="#" />
+          <Molecule.Product thumbnail={Tshirts} title="T-shirts" price={600} isSoldOut={false} link="#" />
+          <Molecule.Product thumbnail={Tumbler} title="Tumbler" price={400} isSoldOut={false} link="#" />
         </Organism.Shop>
       <Organism.Footer />
     </div>
