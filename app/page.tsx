@@ -8,24 +8,10 @@ import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Organism from "@organism";
 
 export default function Home() {
-  const Pattern = ({ children }) => {
-    return (
-      <div className="relative">
-        <div className="flex absolute inset-0 w-full h-full z-[-1]">
-          <div className="bg-white flex-1"></div>
-          <div className="diagonal-slash w-96"></div>
-          <div className="bg-[#f8efe6] flex-1"></div>
-        </div>
-        <div>
-          <div className="min-h-screen">{ children }</div>
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <Pattern>
+    <div>
       <Organism.Header />
+      <div className="md:flex flex-col md:flex-row justify-center my-5 md:my-16"><Organism.Navigation /></div>
       <section className="container mx-auto">
         <div className="flex items-center my-40">
           <div className="flex-1">
@@ -47,6 +33,6 @@ export default function Home() {
         </div>
       </section>
       <Organism.Footer />
-    </Pattern>
+    </div>
   )
 }
