@@ -24,10 +24,10 @@ const Footer = () => {
           <div className="flex-1 mt-5">
             <div className="font-bold text-black md:text-center">Follow Us</div>
             <div className="md:flex md:gap-3 md:justify-center mt-5">
-              <a href="#" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faFacebookF} className="w-5 h-5" /></a>
-              <a href="#" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faInstagram} className="w-5 h-5" /></a>
-              <a href="#" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faTiktok} className="w-5 h-5" /></a>
-              <a href="#" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faYoutube} className="w-5 h-5" /></a>
+              <a href="https://www.facebook.com/purrintables" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faFacebookF} className="w-5 h-5" /></a>
+              <a href="https://www.instagram.com/purrintables" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faInstagram} className="w-5 h-5" /></a>
+              <a href="https://www.tiktok.com/@purrintables" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faTiktok} className="w-5 h-5" /></a>
+              <a href="https://www.youtube.com/@purrintables" target="_blank" className="text-[#a6a6a6] hover:text-black transition-all"><FontAwesomeIcon icon={faYoutube} className="w-5 h-5" /></a>
             </div>
           </div>
           <div className="flex-1 mt-5">
