@@ -5,10 +5,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
-import Logo from './_assets/logo.png'
-import Image from 'next/image'
-
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import Organism from "@organism";
 
 export default function Home() {
   const Pattern = ({ children }) => {
@@ -28,18 +25,7 @@ export default function Home() {
 
   return (
     <Pattern>
-      <header>
-        <nav className="text-white">
-          <div className="container mx-auto flex p-2 items-center">
-            <div className="mr-auto">
-              <Image src={Logo} width={150} alt='Purrintables'/>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faBars} className="w-5 h-5" />
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Organism.Header />
       <section className="container mx-auto">
         <div className="flex items-center my-40">
           <div className="flex-1">
