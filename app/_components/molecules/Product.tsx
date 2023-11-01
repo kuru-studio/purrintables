@@ -6,7 +6,7 @@ const Product = ({
   price,
   isSoldOut,
   link,
-}) => {
+}: any) => {
   return (
     <a className="inline-block m-5" href={link}>
       <div className="w-40 md:w-60 xl:w-80 aspect-square relative mb-4">

@@ -1,4 +1,4 @@
-const Visibility = ({ state, children }) => {
+const Visibility = ({ state, children }: any) => {
   return (
     <>
       {state ? children : null}

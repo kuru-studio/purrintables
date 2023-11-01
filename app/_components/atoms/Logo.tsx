@@ -1,7 +1,7 @@
 import LogoImage from '../../_assets/logo.png'
 import Image from 'next/image'
 
-const Logo = ({ width }) => {
+const Logo = ({ width }: any) => {
   return (
     <Image
       src={LogoImage}

@@ -1,7 +1,7 @@
 import StyledComponentsRegistry from '../../_utilities/antd_registry';
 import ConfigProvider from 'antd/es/config-provider';
 
-const Wrapper = ({ children }) => {
+const Wrapper = ({ children }: any) => {
   return (
     <StyledComponentsRegistry>
       <ConfigProvider>

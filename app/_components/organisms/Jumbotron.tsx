@@ -1,4 +1,4 @@
-const Jumbotron = ({ title, children }) => {
+const Jumbotron = ({ title, children }: any) => {
   return (
     <div className="bg-[#f8efe6]">
       <div className="container mx-auto text-2xl py-10 px-5">
