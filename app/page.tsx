@@ -46,6 +46,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Organism.Footer />
     </Pattern>
   )
 }
