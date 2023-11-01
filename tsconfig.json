@@ -20,8 +20,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./*"],
+      "@atom": ["./app/_components/atoms"],
+      "@molecule": ["./app/_components/molecules"],
+      "@organism": ["./app/_components/organisms"],
+      "@template": ["./app/_components/templates"],
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
