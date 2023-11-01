@@ -1,9 +1,4 @@
 "use client";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faTiktok } from '@fortawesome/free-brands-svg-icons';
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import Organism from "@organism";
 
@@ -12,25 +7,15 @@ export default function Home() {
     <div>
       <Organism.Header />
       <div className="md:flex flex-col md:flex-row justify-center my-5 md:my-16"><Organism.Navigation /></div>
-      <section className="container mx-auto">
-        <div className="flex items-center my-40">
-          <div className="flex-1">
-            <div className="text-[#e898a3] font-bold text-[60px] uppercase">Coming Soon</div>
-            <div className="text-[#939393] my-8 mr-20 text-[20px]">
-              <div>Our website is still under construction.</div>
-              <div>For more updates, follow us on our social media platforms.</div>
-            </div>
-            <div className="flex space-x-4 text-[#a6a6a6]">
-              <FontAwesomeIcon icon={faFacebookF} className="w-5 h-5" />
-              <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" />
-              <FontAwesomeIcon icon={faTiktok} className="w-5 h-5" />
-              <FontAwesomeIcon icon={faYoutube} className="w-5 h-5" />
-            </div>
+      <section>
+        <div>slider section</div>
+        <Organism.Jumbotron title="Welcome to Purrintables!">
+          <div className="space-y-3">
+            <p className="leading-10">Purrintables is a small business based in the Philippines. Here you can support all sorts of our products ranging from <span className="font-bold text-[#df56c0]">prints</span> and <span className="font-bold text-[#df56c0]">stickers</span> to <span className="font-bold text-[#df56c0]">T-shirts</span> and <span className="font-bold text-[#df56c0]">Merch sets</span>.</p>
+            <p className="leading-10">Please read our <span className="font-bold text-[#df56c0]">FAQ</span> pages before making a purchase!</p>
           </div>
-          <div className="bg-gray-200 w-[1000px] aspect-video rounded-xl flex shadow-xl overflow-hidden">
-            <iframe src="https://www.youtube.com/embed/HPf6TU0AXp8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-          </div>
-        </div>
+        </Organism.Jumbotron>
+        <div>products section</div>
       </section>
       <Organism.Footer />
     </div>
