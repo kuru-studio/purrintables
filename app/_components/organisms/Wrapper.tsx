@@ -1,4 +1,4 @@
-import StyledComponentsRegistry from '../../_utilities/antd_registry';
+import StyledComponentsRegistry from '../../_utilities/antd-registry';
 import ConfigProvider from 'antd/es/config-provider';
 
 const Wrapper = ({ children }: any) => {
