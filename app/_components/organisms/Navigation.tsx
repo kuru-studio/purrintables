@@ -29,22 +29,20 @@ const Navigation = () => {
   }));
 
   return (
-    <div className="md:flex text-2xl items-center text-gray-700">
-      <div className="px-7 uppercase text-center">
+    <div className="md:flex items-center text-white gap-5">
+      <div>
         <Dropdown overlay={<Menu items={shopItems} />}>
           <a onClick={(e) => e.preventDefault()}>
             Shop
           </a>
         </Dropdown>
       </div>
-      <div className="w-[2px] h-5 bg-gray-700 hidden md:block"></div>
-      <div className="px-7 uppercase text-center">
+      <div>
         <Link href="/">
           Home
         </Link>
       </div>
-      <div className="w-[2px] h-5 bg-gray-700 hidden md:block"></div>
-      <div className="px-7 uppercase text-center">
+      <div>
         <Dropdown overlay={<Menu items={infoItems} />}>
           <a onClick={(e) => e.preventDefault()}>
             Info

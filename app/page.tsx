@@ -53,7 +53,7 @@ export default function Home() {
     <div>
       <Organism.Header />
       <UnderConstructionModal />
-      <div className="md:flex flex-col md:flex-row justify-center my-5 md:my-16"><Organism.Navigation /></div>
+      <div className="mb-10"></div>
       <div className="container px-5 mx-auto mb-16"><Organism.Carousel /></div>
       <Organism.Jumbotron title="Welcome to Purrintables!">
         <div className="space-y-3">
