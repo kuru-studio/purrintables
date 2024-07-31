@@ -42,7 +42,7 @@ export default function Home() {
             width={200}
             alt='Under Maintenance'
           />
-          <div className="text-2xl font-light text-center">Purrintables is under construction. Some links might be broken.</div>
+          <div className="text-2xl font-light text-center">Purrintables is under construction. Some links might be broken. In the mean time you can message us over at <a href="https://www.instagram.com/purrintables" target="_blank">Instagram</a> or <a href="https://www.facebook.com/purrintables" target="_blank">Facebook</a>!</div>
         </div>
       </Modal>
     );
