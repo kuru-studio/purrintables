@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "vercel"
+    "deploy": "vercel",
+    "release": "vercel --prod"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
