@@ -7,7 +7,11 @@ import { faUser, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-sol
 import Molecule from "@molecule";
 import Atom from "@atom";
 
-const Navigation = ({ type }) => {
+interface NavigationProps {
+  type: string;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ type }) => {
   const [isAuthenticateModalOpen, setIsAuthenticateModalOpen] = useState(false);
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);

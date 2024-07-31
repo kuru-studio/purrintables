@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
@@ -13,6 +13,11 @@ import {
 import { firebaseConfig } from '../../_utilities/firebase';
 import { Modal, Input, Button, Divider } from 'antd';
 
+interface AuthenticateProps {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+}
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -20,10 +25,10 @@ const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const twitterProvider = new TwitterAuthProvider();
 
-const Authenticate = ({ isOpen, setIsOpen }) => {
+const Authenticate: React.FC<AuthenticateProps> = ({ isOpen, setIsOpen }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSignUp = async () => {
     try {
@@ -31,7 +36,7 @@ const Authenticate = ({ isOpen, setIsOpen }) => {
       // User signed up successfully
       console.log(userCredential.user);
     } catch (error) {
-      setError(error.message);
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -39,9 +44,9 @@ const Authenticate = ({ isOpen, setIsOpen }) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       // User signed in successfully
-      console.log(userCredential.user.accessToken);
+      console.log(userCredential);
     } catch (error) {
-      setError(error.message);
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -51,7 +56,7 @@ const Authenticate = ({ isOpen, setIsOpen }) => {
       // Google user signed in successfully
       console.log(result.user);
     } catch (error) {
-      setError(error.message);
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -61,7 +66,7 @@ const Authenticate = ({ isOpen, setIsOpen }) => {
       // Facebook user signed in successfully
       console.log(result.user);
     } catch (error) {
-      setError(error.message);
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -71,7 +76,7 @@ const Authenticate = ({ isOpen, setIsOpen }) => {
       // Twitter user signed in successfully
       console.log(result.user);
     } catch (error) {
-      setError(error.message);
+      setError("Something went wrong. Please try again.");
     }
   };
 

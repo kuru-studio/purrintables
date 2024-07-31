@@ -3,7 +3,12 @@ import { Modal, Input } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ isOpen, setIsOpen }) => {
+interface SearchProps {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+}
+
+const Search: React.FC<SearchProps> = ({ isOpen, setIsOpen }) => {
   const handleOk = () => {
     setIsOpen(false);
   };
