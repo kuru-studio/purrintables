@@ -14,23 +14,14 @@ import Image from 'next/image'
 import { Modal } from 'antd';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    const modalShownBefore = localStorage.getItem("modalShownBefore");
-
-    if (!modalShownBefore) {
-      setIsModalOpen(true);
-      localStorage.setItem("modalShownBefore", "true");
-    }
-  }, []);
+  const [isModalOpen] = useState(window.location.href !== "http://localhost:3000");
 
   const handleOk = () => {
-    setIsModalOpen(false);
+    console.log("Sorry, this feature is under construction.");
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    console.log("Sorry, this feature is under construction.");
   };
 
   const UnderConstructionModal = () => {
