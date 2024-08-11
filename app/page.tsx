@@ -14,7 +14,7 @@ import Image from 'next/image'
 import { Modal } from 'antd';
 
 export default function Home() {
-  const [isModalOpen] = useState(window.location.href !== "http://localhost:3000");
+  const [isModalOpen] = useState(typeof window !== 'undefined' && window.location.href !== "http://localhost:3000/");
 
   const handleOk = () => {
     console.log("Sorry, this feature is under construction.");
