@@ -19,7 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Organism.Wrapper>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <Organism.Header />
+          {children}
+          <Organism.Footer />
+        </body>
       </Organism.Wrapper>
     </html>
   );
