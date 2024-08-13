@@ -2,15 +2,12 @@
 import { useState } from "react";
 import Organism from "@organism";
 import Molecule from "@molecule";
-
 import Keychains from "./_assets/products/keychains.png";
 import Sticker from "./_assets/products/sticker-set.png";
 import Tshirts from "./_assets/products/t-shirts.png";
 import Tumbler from "./_assets/products/tumbler.png";
 import UnderConstruction from "./_assets/under-construction.png";
-
 import Image from "next/image";
-
 import { Modal } from "antd";
 
 export default function Home() {
