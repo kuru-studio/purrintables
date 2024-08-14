@@ -17,7 +17,7 @@ export default async function ProductCategoryPage({ params }: any) {
 
   // in the future maybe we can use backend for this (categorymodel)
   const categoryRecord: Record<string, CategoryType> = {
-    all: { title: "All", desc: lorem },
+    shop_all: { title: "Shop All", desc: lorem },
     prints: { title: "Prints", desc: lorem },
     books: { title: "Books", desc: lorem },
     stickers: { title: "Stickers", desc: lorem },
