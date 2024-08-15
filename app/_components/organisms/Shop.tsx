@@ -3,7 +3,8 @@ import { Product } from "@/app/_types/product";
 import Molecule from "../molecules";
 import { useAtom } from "jotai";
 import { shopCartAtom } from "@/app/_contexts/shopCart";
-import { useEffect } from "react";
+import { NotificationContext } from "@/app/_contexts/notification";
+import { useContext } from "react";
 
 interface Props {
   title: string;
@@ -12,10 +13,17 @@ interface Props {
 }
 
 export default function Shop({ title, productArray, isAddtoCart = false }: Props) {
+  const notif = useContext(NotificationContext);
   const [_, setShopCart] = useAtom(shopCartAtom);
   // updates shopCart upon dispatch
   function onAddToCart(product: Product) {
+    const notifMessage = {
+      message: "Item has been added to Cart!",
+      description: `${product.title} has been added to the Shopping Cart!`,
+    };
     setShopCart((prevValue) => [...prevValue, product]);
+    // call openNotification function from notif ctx
+    notif?.openNotification(notifMessage.message, notifMessage.description);
   }
 
   return (
