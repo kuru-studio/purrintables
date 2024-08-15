@@ -73,21 +73,7 @@ export default async function ProductCategoryPage({ params }: any) {
         <p className="mt-6">{categoryItem.desc}</p>
       </header>
       <article className="my-6">
-        <Organism.Shop>
-          {productsArray.length &&
-            productsArray.map((product: Product) => {
-              return (
-                <Molecule.Product
-                  key={product.id}
-                  thumbnail={product.thumbnail}
-                  title={product.title}
-                  price={product.price}
-                  isSoldOut={product.isSoldOut}
-                  link={product.link}
-                />
-              );
-            })}
-        </Organism.Shop>
+        <Organism.Shop isAddtoCart title={categoryItem.title} productArray={productsArray} />
       </article>
     </main>
   );
