@@ -1,15 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Dropdown, Menu, MenuProps } from "antd";
+import { Dropdown, MenuProps } from "antd";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faCartShopping,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faCartShopping, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Molecule from "@molecule";
 import Atom from "@atom";
+import _ from "lodash";
 
 interface NavigationProps {
   type: string;
@@ -32,7 +29,7 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
     "Paocat Merch",
   ].map((label, index) => ({
     key: index + 1,
-    label,
+    label: <a href={`/shop/${_.snakeCase(label)}`}>{label}</a>,
   }));
 
   const infoItems: MenuProps["items"] = [
@@ -76,16 +73,10 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
           />
         </Atom.Visibility>
         <Atom.Visibility state={isCartDrawerOpen}>
-          <Molecule.Cart
-            isOpen={isCartDrawerOpen}
-            setIsOpen={setIsCartDrawerOpen}
-          />
+          <Molecule.Cart isOpen={isCartDrawerOpen} setIsOpen={setIsCartDrawerOpen} />
         </Atom.Visibility>
         <Atom.Visibility state={isSearchModalOpen}>
-          <Molecule.Search
-            isOpen={isSearchModalOpen}
-            setIsOpen={setIsSearchModalOpen}
-          />
+          <Molecule.Search isOpen={isSearchModalOpen} setIsOpen={setIsSearchModalOpen} />
         </Atom.Visibility>
         <FontAwesomeIcon
           icon={faUser}
