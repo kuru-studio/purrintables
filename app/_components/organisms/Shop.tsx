@@ -5,6 +5,8 @@ import { useAtom } from "jotai";
 import { shopCartAtom } from "@/app/_contexts/shopCart";
 import { NotificationContext } from "@/app/_contexts/notification";
 import { useContext } from "react";
+import { Cart, CartItem } from "@/app/_types/cart";
+import { getTotalPrice, getProductQuantity } from "@/app/_utilities/cartUtils";
 
 interface Props {
   title: string;
@@ -14,14 +16,35 @@ interface Props {
 
 export default function Shop({ title, productArray, isAddtoCart = false }: Props) {
   const notif = useContext(NotificationContext);
-  const [_, setShopCart] = useAtom(shopCartAtom);
+  const [shopCart, setShopCart] = useAtom(shopCartAtom);
+
   // updates shopCart upon dispatch
   function onAddToCart(product: Product) {
     const notifMessage = {
       message: "Item has been added to Cart!",
       description: `${product.title} has been added to the Shopping Cart!`,
     };
-    setShopCart((prevValue) => [...prevValue, product]);
+
+    const productQuantity = getProductQuantity(product.id, shopCart.items);
+    const quantity = 1 + productQuantity;
+
+    // if a product does not exist create a new cartItem
+    if (!productQuantity) {
+      const item: CartItem = { ...product, quantity: 1, subtotal: product.price };
+      const cartItems: CartItem[] = [...shopCart.items, item];
+      const total = getTotalPrice(cartItems);
+      setShopCart({ items: cartItems, total: total });
+      // if a product does exist update the quantity
+    } else {
+      const filteredArr = shopCart.items.filter((item) => {
+        return item.id !== product.id;
+      });
+      const updatedItem: CartItem = { ...product, quantity, subtotal: product.price * quantity };
+      const cartItems: CartItem[] = [...filteredArr, updatedItem];
+      const total = getTotalPrice(cartItems);
+      setShopCart({ items: cartItems, total: total });
+    }
+
     // call openNotification function from notif ctx
     notif?.openNotification(notifMessage.message, notifMessage.description);
   }
