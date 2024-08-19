@@ -86,7 +86,7 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
           className="w-5 h-5 text-white cursor-pointer"
           onClick={() => setIsAuthenticateModalOpen(true)}
         />
-        <Badge count={shopCart.length}>
+        <Badge count={shopCart.items.length}>
           <FontAwesomeIcon
             icon={faCartShopping}
             className="w-5 h-5 text-white cursor-pointer"

@@ -13,13 +13,18 @@ export default function Cart({ isOpen, setIsOpen }: Props) {
   const [shopCart, setShopCart] = useAtom(shopCartAtom);
   return (
     <Drawer title="Cart" onClose={() => setIsOpen(false)} open={isOpen}>
-      <Atom.Visibility state={!shopCart.length}>
+      <Atom.Visibility state={!shopCart.items.length}>
         <Empty description="Your cart is empty." />
       </Atom.Visibility>
-      <Atom.Visibility state={shopCart.length}>
-        {shopCart.map((item) => {
-          return <h1 key={item.id}>{item.title}</h1>;
+      <Atom.Visibility state={shopCart.items.length}>
+        {shopCart.items.map((item) => {
+          return (
+            <h1 key={item.id}>
+              {item.title} x {item.quantity} = {item.quantity * item.price}
+            </h1>
+          );
         })}
+        <h1>Total: {shopCart.total}</h1>
       </Atom.Visibility>
     </Drawer>
   );
