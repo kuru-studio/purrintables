@@ -1,4 +1,4 @@
 import { atom } from "jotai";
-import { Product } from "../_types/product";
+import { Cart } from "../_types/cart";
 
-export const shopCartAtom = atom<Product[]>([]);
+export const shopCartAtom = atom<Cart>({ items: [], total: 0 });
