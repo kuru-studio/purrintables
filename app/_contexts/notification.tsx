@@ -16,7 +16,8 @@ export default function NotificationProvider({ children }: { children: React.Rea
     api.open({
       message,
       description,
-      duration: 3,
+      duration: 2,
+      placement: "bottomRight",
     });
   }
 
