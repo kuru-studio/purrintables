@@ -1,33 +1,40 @@
 import { useAtom } from "jotai";
-import { getProductQuantity, getTotalPrice } from "../_utilities/cartUtils";
 import { Product } from "../_types/product";
 import { shopCartAtom } from "../_contexts/shopCart";
 import { useCallback, useContext } from "react";
 import { NotificationContext } from "../_contexts/notification";
+import { CartItem } from "../_types/cart";
 
 export function useCartActions() {
   const notif = useContext(NotificationContext);
   const [shopCart, setShopCart] = useAtom(shopCartAtom);
 
+  // for getting a certain item's current quantity
+  function getProductQuantity(id: string, cartItems: CartItem[]) {
+    // if item is found, return the quantity, instead return 0
+    const item = cartItems.find((item) => item.id === id);
+    return item?.quantity || 0;
+  }
+
+  // computes total price of the cart
+  function getTotalPrice(items: CartItem[]) {
+    return items.reduce((total, product) => total + product.subtotal, 0);
+  }
+
+  //   add to cart action, use useCallback, since we pass this as a prop
   const addToCart = useCallback(
     (product: Product) => {
-      const notifMessage = {
-        message: "Item has been added to Cart!",
-        description: `${product.title} has been added to the Shopping Cart!`,
-      };
-
-      // get productQuantity, if 0 it's a new cartItem
+      // get productQuantity, if 0 it's a new item
       const productQuantity = getProductQuantity(product.id, shopCart.items);
-      // add +1 since we are adding a new item on the cart
-      const newQuantity = productQuantity + 1;
 
       const updatedCartItems = shopCart.items.map((item) => {
         // if item exists on the cart, we update the quantity instead of adding new item
         if (item.id === product.id) {
           return {
             ...item,
-            quantity: newQuantity,
-            subtotal: product.price * newQuantity,
+            // add 1 since we are adding a new instance og the item, compute subtotal
+            quantity: productQuantity + 1,
+            subtotal: product.price * productQuantity + 1,
           };
         }
         return item;
@@ -46,7 +53,12 @@ export function useCartActions() {
       const total = getTotalPrice(updatedCartItems);
       // call state update
       setShopCart({ items: updatedCartItems, total });
-      notif?.openNotification(notifMessage.message, notifMessage.description);
+
+      // call notifs
+      notif?.openNotification(
+        "Item has been added to Cart!",
+        `${product.title} has been added to the Shopping Cart!`
+      );
     },
     [shopCart]
   );
