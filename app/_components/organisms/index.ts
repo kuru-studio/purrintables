@@ -5,6 +5,7 @@ import Navigation from "./Navigation";
 import Jumbotron from "./Jumbotron";
 import Carousel from "./Carousel";
 import Shop from "./Shop";
+import Cart from "./Cart";
 
 const Organism = {
   Wrapper,
@@ -14,6 +15,7 @@ const Organism = {
   Jumbotron,
   Carousel,
   Shop,
-}
+  Cart,
+};
 
-export default Organism
+export default Organism;

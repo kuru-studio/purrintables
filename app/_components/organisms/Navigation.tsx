@@ -9,6 +9,7 @@ import Atom from "@atom";
 import _ from "lodash";
 import { useAtom } from "jotai";
 import { shopCartAtom } from "@/app/_contexts/shopCart";
+import Organism from ".";
 
 interface NavigationProps {
   type: string;
@@ -76,7 +77,7 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
           />
         </Atom.Visibility>
         <Atom.Visibility state={isCartDrawerOpen}>
-          <Molecule.Cart isOpen={isCartDrawerOpen} setIsOpen={setIsCartDrawerOpen} />
+          <Organism.Cart isOpen={isCartDrawerOpen} setIsOpen={setIsCartDrawerOpen} />
         </Atom.Visibility>
         <Atom.Visibility state={isSearchModalOpen}>
           <Molecule.Search isOpen={isSearchModalOpen} setIsOpen={setIsSearchModalOpen} />
