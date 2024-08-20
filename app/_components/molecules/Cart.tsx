@@ -4,6 +4,7 @@ import { useAtom } from "jotai";
 import { shopCartAtom } from "@/app/_contexts/shopCart";
 import Atom from "../atoms";
 import Image from "next/image";
+import { useCartActions } from "@/app/_hooks/useCartActions";
 
 interface Props {
   isOpen: boolean;
@@ -11,7 +12,8 @@ interface Props {
 }
 
 export default function Cart({ isOpen, setIsOpen }: Props) {
-  const [shopCart, setShopCart] = useAtom(shopCartAtom);
+  const { shopCart } = useCartActions();
+
   return (
     <Drawer title="Cart" onClose={() => setIsOpen(false)} open={isOpen}>
       <Atom.Visibility state={!shopCart.items.length}>
