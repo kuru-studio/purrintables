@@ -1,5 +1,4 @@
 "use client";
-import React, { memo } from "react";
 import { Drawer, Empty, List } from "antd";
 import Atom from "../atoms";
 import { useCartActions } from "@/app/_hooks/useCartActions";
@@ -10,8 +9,9 @@ interface Props {
   setIsOpen: (value: boolean) => void;
 }
 
-function CartComponent({ isOpen, setIsOpen }: Props) {
+export default function Cart({ isOpen, setIsOpen }: Props) {
   const { shopCart, removeToCart } = useCartActions();
+
   return (
     <Drawer title="Cart" onClose={() => setIsOpen(false)} open={isOpen}>
       <Atom.Visibility state={!shopCart.items.length}>
@@ -32,6 +32,3 @@ function CartComponent({ isOpen, setIsOpen }: Props) {
     </Drawer>
   );
 }
-
-const Cart = memo(CartComponent);
-export default Cart;
