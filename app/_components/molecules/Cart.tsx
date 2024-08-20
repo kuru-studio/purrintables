@@ -1,8 +1,9 @@
 "use client";
-import { Drawer, Empty } from "antd";
+import { Avatar, Card, Drawer, Empty, InputNumber, List } from "antd";
 import { useAtom } from "jotai";
 import { shopCartAtom } from "@/app/_contexts/shopCart";
 import Atom from "../atoms";
+import Image from "next/image";
 
 interface Props {
   isOpen: boolean;
@@ -17,13 +18,32 @@ export default function Cart({ isOpen, setIsOpen }: Props) {
         <Empty description="Your cart is empty." />
       </Atom.Visibility>
       <Atom.Visibility state={shopCart.items.length}>
-        {shopCart.items.map((item) => {
-          return (
-            <h1 key={item.id}>
-              {item.title} x {item.quantity} = {item.quantity * item.price}
-            </h1>
-          );
-        })}
+        <List
+          itemLayout="horizontal"
+          dataSource={shopCart.items}
+          renderItem={(item) => (
+            <List.Item>
+              <Card className="hover:bg-neutral-100">
+                <article className="flex flex-row justify-center items-center gap-12">
+                  <header className="flex flex-row justify-center items-center gap-4">
+                    <Image width={50} src={item.thumbnail} alt="img" />
+                    <h1 className="font-bold">{item.title}</h1>
+                  </header>
+                  <div className="flex flex-row justify-center items-center gap-2">
+                    <span>X</span>
+                    <InputNumber
+                      className="w-12 h-10 flex flex-col justify-center"
+                      min={1}
+                      defaultValue={item.quantity}
+                      onChange={() => {}}
+                    />
+                  </div>
+                  <span className="text-primary font-bold">&#8369;{item.subtotal}</span>
+                </article>
+              </Card>
+            </List.Item>
+          )}
+        />
         <h1>Total: {shopCart.total}</h1>
       </Atom.Visibility>
     </Drawer>
