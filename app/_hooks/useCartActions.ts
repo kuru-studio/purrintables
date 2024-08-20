@@ -25,7 +25,9 @@ export function useCartActions() {
   const addToCart = useCallback(
     (product: Product) => {
       // get productQuantity, if 0 it's a new item
+
       const productQuantity = getProductQuantity(product.id, shopCart.items);
+      const newQuantity = productQuantity + 1;
 
       const updatedCartItems = shopCart.items.map((item) => {
         // if item exists on the cart, we update the quantity instead of adding new item
@@ -33,8 +35,8 @@ export function useCartActions() {
           return {
             ...item,
             // add 1 since we are adding a new instance og the item, compute subtotal
-            quantity: productQuantity + 1,
-            subtotal: product.price * productQuantity + 1,
+            quantity: newQuantity,
+            subtotal: product.price * newQuantity,
           };
         }
         return item;
@@ -49,10 +51,8 @@ export function useCartActions() {
         });
       }
 
-      // compute total price
-      const total = getTotalPrice(updatedCartItems);
-      // call state update
-      setShopCart({ items: updatedCartItems, total });
+      // call state update and update cart total
+      setShopCart({ items: updatedCartItems, total: getTotalPrice(updatedCartItems) });
 
       // call notifs
       notif?.openNotification(
@@ -63,5 +63,19 @@ export function useCartActions() {
     [shopCart]
   );
 
-  return { addToCart, shopCart };
+  const removeToCart = useCallback(
+    (id: string) => {
+      // remove specific cart item by id
+      const updatedCartItems = shopCart.items.filter((item) => item.id !== id);
+      // call state update and update cart total
+      setShopCart({ items: updatedCartItems, total: getTotalPrice(updatedCartItems) });
+      notif?.openNotification(
+        "Item has been removed to Cart!",
+        `Item has been added to the Shopping Cart!`
+      );
+    },
+    [shopCart]
+  );
+
+  return { addToCart, removeToCart, shopCart };
 }
