@@ -7,9 +7,6 @@ import { faUser, faCartShopping, faMagnifyingGlass } from "@fortawesome/free-sol
 import Molecule from "@molecule";
 import Atom from "@atom";
 import _ from "lodash";
-import { useAtom } from "jotai";
-import { shopCartAtom } from "@/app/_contexts/shopCart";
-import Organism from ".";
 
 interface NavigationProps {
   type: string;
@@ -19,7 +16,6 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
   const [isAuthenticateModalOpen, setIsAuthenticateModalOpen] = useState(false);
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
-  const [shopCart, setShopCart] = useAtom(shopCartAtom);
 
   const shopItems: MenuProps["items"] = [
     "Shop All",
@@ -77,7 +73,7 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
           />
         </Atom.Visibility>
         <Atom.Visibility state={isCartDrawerOpen}>
-          <Organism.Cart isOpen={isCartDrawerOpen} setIsOpen={setIsCartDrawerOpen} />
+          <Molecule.Cart isOpen={isCartDrawerOpen} setIsOpen={setIsCartDrawerOpen} />
         </Atom.Visibility>
         <Atom.Visibility state={isSearchModalOpen}>
           <Molecule.Search isOpen={isSearchModalOpen} setIsOpen={setIsSearchModalOpen} />
@@ -87,13 +83,13 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
           className="w-5 h-5 text-white cursor-pointer"
           onClick={() => setIsAuthenticateModalOpen(true)}
         />
-        <Badge count={shopCart.items.length}>
-          <FontAwesomeIcon
-            icon={faCartShopping}
-            className="w-5 h-5 text-white cursor-pointer"
-            onClick={() => setIsCartDrawerOpen(true)}
-          />
-        </Badge>
+
+        <FontAwesomeIcon
+          icon={faCartShopping}
+          className="w-5 h-5 text-white cursor-pointer"
+          onClick={() => setIsCartDrawerOpen(true)}
+        />
+
         <FontAwesomeIcon
           icon={faMagnifyingGlass}
           className="w-5 h-5 text-white cursor-pointer"
