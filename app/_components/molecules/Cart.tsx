@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function Cart({ isOpen, setIsOpen }: Props) {
-  const { shopCart, removeToCart } = useCartActions();
+  const { shopCart, removeToCart, updateQty } = useCartActions();
 
   return (
     <Drawer title="Cart" onClose={() => setIsOpen(false)} open={isOpen}>
@@ -19,11 +19,13 @@ export default function Cart({ isOpen, setIsOpen }: Props) {
       </Atom.Visibility>
       <Atom.Visibility state={shopCart.items.length}>
         <List
+          size="small"
+          grid={{ gutter: 0, column: 1 }}
           itemLayout="horizontal"
           dataSource={shopCart.items}
           renderItem={(item) => (
             <List.Item>
-              <Molecule.CartItem item={item} onRemove={removeToCart} />
+              <Molecule.CartItem item={item} onRemove={removeToCart} onUpdateQty={updateQty} />
             </List.Item>
           )}
         />
