@@ -77,5 +77,34 @@ export function useCartActions() {
     [shopCart]
   );
 
-  return { addToCart, removeToCart, shopCart };
+  const updateQty = useCallback(
+    (id: string, action: "add" | "remove" | "update", value: number = 0) => {
+      const updatedCartItems = shopCart.items.map((item) => {
+        // search for the updated item
+        if (item.id === id) {
+          // if action is "add" or "remove" iterate the qty up or down
+          if (action != "update") {
+            const newQuantity = action == "add" ? item.quantity + 1 : item.quantity - 1;
+            return {
+              ...item,
+              quantity: newQuantity,
+              subtotal: item.price * newQuantity,
+            };
+          }
+          // if action is "update" directly update the qty
+          return {
+            ...item,
+            quantity: value,
+            subtotal: item.price * value,
+          };
+        }
+        // if not the item no changes
+        return item;
+      });
+      setShopCart({ items: updatedCartItems, total: getTotalPrice(updatedCartItems) });
+    },
+    [shopCart]
+  );
+
+  return { addToCart, removeToCart, shopCart, updateQty };
 }
