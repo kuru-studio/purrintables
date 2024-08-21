@@ -60,7 +60,7 @@ export function useCartActions() {
         `${product.title} has been added to the Shopping Cart!`
       );
     },
-    [shopCart]
+    [shopCart, notif, setShopCart]
   );
 
   const removeToCart = useCallback(
@@ -74,7 +74,7 @@ export function useCartActions() {
         `Item has been added to the Shopping Cart!`
       );
     },
-    [shopCart]
+    [shopCart, notif, setShopCart]
   );
 
   const updateQty = useCallback(
@@ -103,7 +103,7 @@ export function useCartActions() {
       });
       setShopCart({ items: updatedCartItems, total: getTotalPrice(updatedCartItems) });
     },
-    [shopCart]
+    [shopCart, setShopCart]
   );
 
   return { addToCart, removeToCart, shopCart, updateQty };
