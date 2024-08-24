@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Dropdown, MenuProps } from "antd";
+import { Badge, Dropdown, MenuProps } from "antd";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCartShopping, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -83,11 +83,13 @@ const Navigation: React.FC<NavigationProps> = ({ type }) => {
           className="w-5 h-5 text-white cursor-pointer"
           onClick={() => setIsAuthenticateModalOpen(true)}
         />
+
         <FontAwesomeIcon
           icon={faCartShopping}
           className="w-5 h-5 text-white cursor-pointer"
           onClick={() => setIsCartDrawerOpen(true)}
         />
+
         <FontAwesomeIcon
           icon={faMagnifyingGlass}
           className="w-5 h-5 text-white cursor-pointer"

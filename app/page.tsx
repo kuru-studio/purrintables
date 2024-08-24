@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Organism from "@organism";
-import Molecule from "@molecule";
 import Keychains from "./_assets/products/keychains.png";
 import Sticker from "./_assets/products/sticker-set.png";
 import Tshirts from "./_assets/products/t-shirts.png";
@@ -9,6 +8,7 @@ import Tumbler from "./_assets/products/tumbler.png";
 import UnderConstruction from "./_assets/under-construction.png";
 import Image from "next/image";
 import { Modal } from "antd";
+import { Product } from "./_types/product";
 
 export default function Home() {
   const [isModalOpen] = useState(
@@ -51,8 +51,9 @@ export default function Home() {
     );
   };
 
-  const productArr = [
+  const productArr: Product[] = [
     {
+      id: "1",
       thumbnail: Keychains,
       title: "Keychains",
       price: 200,
@@ -60,6 +61,7 @@ export default function Home() {
       link: "/shop/keychains",
     },
     {
+      id: "2",
       thumbnail: Sticker,
       title: "Sticker Set",
       price: 150,
@@ -67,6 +69,7 @@ export default function Home() {
       link: "/shop/stickers",
     },
     {
+      id: "3",
       thumbnail: Tshirts,
       title: "T-shirts",
       price: 600,
@@ -74,6 +77,7 @@ export default function Home() {
       link: "/shop/tshirts_hoodies",
     },
     {
+      id: "4",
       thumbnail: Tumbler,
       title: "Tumbler",
       price: 400,
@@ -104,20 +108,7 @@ export default function Home() {
           </p>
         </div>
       </Organism.Jumbotron>
-      <Organism.Shop title="Featured Products">
-        {productArr.map((item, index) => {
-          return (
-            <Molecule.Product
-              key={item.link + index}
-              thumbnail={item.thumbnail}
-              title={item.title}
-              price={200}
-              isSoldOut={false}
-              link={item.link}
-            />
-          );
-        })}
-      </Organism.Shop>
+      <Organism.Shop title="Featured Products" productArray={productArr} />
     </main>
   );
 }

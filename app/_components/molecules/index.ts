@@ -1,13 +1,15 @@
-import Product from "./Product";
+import ProductItem from "./ProductItem";
 import Authenticate from "./Authenticate";
-import Cart from "./Cart";
 import Search from "./Search";
+import CartItem from "./CartItem";
+import Cart from "./Cart";
 
 const Molecule = {
-  Product,
+  ProductItem,
   Authenticate,
-  Cart,
   Search,
-}
+  CartItem,
+  Cart,
+};
 
 export default Molecule;

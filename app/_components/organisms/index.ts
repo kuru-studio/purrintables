@@ -14,6 +14,6 @@ const Organism = {
   Jumbotron,
   Carousel,
   Shop,
-}
+};
 
-export default Organism
+export default Organism;
