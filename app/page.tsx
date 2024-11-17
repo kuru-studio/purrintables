@@ -35,16 +35,7 @@ export default function Home() {
         <div className="flex items-center flex-col gap-5">
           <Image src={UnderConstruction} width={200} alt="Under Maintenance" />
           <div className="text-2xl font-light text-center">
-            Purrintables is under construction. Some links might be broken. In the mean time you can
-            message us over {`at `}
-            <a href="https://www.instagram.com/purrintables" target="_blank">
-              Instagram
-            </a>
-            {` or `}
-            <a href="https://www.facebook.com/purrintables" target="_blank">
-              Facebook
-            </a>
-            !
+            Purrintables is under construction. Some links might be broken. In the mean time you can visit us over at <a href="https://shopee.ph/purrintables" target="_blank">Shopee</a>.
           </div>
         </div>
       </Modal>
