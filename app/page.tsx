@@ -12,7 +12,7 @@ import { Product } from "./_types/product";
 
 export default function Home() {
   const [isModalOpen] = useState(
-    typeof window !== "undefined" && window.location.href !== "http://localhost:3000/"
+    false && typeof window !== "undefined" && window.location.href !== "http://localhost:3000/"
   );
 
   const handleOk = () => {
