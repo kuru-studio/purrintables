@@ -20,9 +20,12 @@ export default function RootLayout({
     <html lang="en">
       <Organism.Wrapper>
         <body className={inter.className}>
-          <Organism.Header />
-          {children}
-          <Organism.Footer />
+          <div className="container mx-auto p-5">Redirecting. Click <a href="https://shopee.ph/purrintables">here</a> if you are not automatically redirected.</div>
+          <div className="hidden">
+            <Organism.Header />
+            {children}
+            <Organism.Footer />
+          </div>
         </body>
       </Organism.Wrapper>
     </html>
